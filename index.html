@@ -1,0 +1,87 @@
+<html>
+
+<head>
+    <meta charset="utf8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        canvas {
+            display: block;
+            margin: 0 auto;
+        }
+        div {
+            display: inline-block;
+        }
+        h1 {
+            padding: 20px;
+            text-align: center;
+        }
+        body {
+            font-family: 'Noto Sans', sans-serif !important;
+        }
+    </style>
+</head>
+
+<body>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <h1>Ծրագրավորում III Երևան</h1>
+            </tr>
+            <tr>
+                <h1>Ալեքսանդր Աբելյան</h1>
+            </tr>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Գույն</th>
+                <th scope="col">Նկարագրություն</th>
+                <th scope="col">Ծնվել է</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td scope="row" style="background-image: linear-gradient(to right, green 50% , white 50%); border-style:solid;border-width:2px;"></td>
+                <td>Կանաչը խոտն է, Ձմռանը չի բազմանում, գարնանը և ամռանը ավելի հաճախ է բազմանում, գարնանը բազմանալուց ավելանում է նոր խոտ, Ձմռանը այն դառնում է սպիտակ  </td>
+                <td id="grassCount"></td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td scope="row" style="background-color:orange;border-style:solid;border-width:2px;"></td>
+                <td>Դեղինը խոտակերն է, Ձմռանը արագ է սովածանում, Գարնանը բազմանում է եթե իր կողքին կա ուրիշ խոտակեր, ամռանն ու աշնանը մահանալուց 25% հավանակնությամբ ձու է դնում հողի մեջ, որը գարնանը դուրս է գալիս եթե իր վանդակում խոտ է կամ ոչինչ</td>
+                <td id="grassEaterCount"></td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td scope="row" style="background-color:red;border-style:solid;border-width:2px;"></td>
+                <td>Կարմիրը Մսակերն է, գարնանը բազմանում է 2 հոգով,Ամռանը արագ է սովածանում, Ձմռանը արագ է ծերանում:</td>
+                <td id="meatEaterCount"></td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td scope="row" style="background-color:blue;border-style:solid;border-width:2px;"></td>
+                <td>Կապույտը մարդն է, գարնանը բազմանում են 2 հոգով, ամռանը ուտում է խոտ, մնացած ժամանակները խոտակեր կամ մսակեր: Ձմռանը չի շարժվում եթե ուտելու բան չկա:</td>
+                <td id="manCount"></td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td scope="row" style="background-color:yellow;border-style:solid;border-width:2px;"></td>
+                <td>Դեղինը զոմբին է, մահանում է միայն եթե իր կողքը կան 5-ից պակաս ազատ վանդակ: Ուզում է իր կողքի մարդկանց դարձնել զոմբի: Ձմռանը ոչինչ չի անում, Ամռանը չի շարժվում, Անանը մարդկանց չի դիպչում</td>
+                <td id="zombieCount"></td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="color: red">Խաղը սկսելու համար սեղմեք start/pause/resume կոճակը, խաղադաշտին սեղմելու դեպքւմ մտակա 9 վանդակներից ազաներում կհայտնվեն տարբեր կենդանակերպեր:</p>
+    <p style="color: red">Հ.Գ. եթե նկատեք որ ստատիստիկան անիմաստ ավելանում է, դա իրականում ուղղակի նրանից է որ մի տեղ մահանում է մի բան և նույն տեղը ծնվում նույն բանից, դրա համար թվում է որ խաղում բան չի փոխվել, բայց իրականում ավելանում է նոր էակ:</p>
+    <p id="p1"></p>
+    <input id="Button1" type="button" value="Գարուն" onclick="ChangeWeather(1);" />
+    <input id="Button2" type="button" value="Ամառ" onclick="ChangeWeather(2);" />
+    <input id="Button3" type="button" value="Աշուն" onclick="ChangeWeather(3);" />
+    <input id="Button4" type="button" value="Ձմեռ" onclick="ChangeWeather(4);" />
+    <input id="start-pause" type="button" value="start/pause/resume" onclick="start_pause();" />
+    <script src="p5.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
